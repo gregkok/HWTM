@@ -180,4 +180,17 @@ public class HwtmController {
         return "loginPage";
     }
 
+
+    @GetMapping("/visitorsProfile/{user_id}")
+    public String visitorsProfile(@PathVariable long user_id, Model model){
+
+        User visitUser = userRepository.getUserDetails(user_id);
+        model.addAttribute("user", visitUser);
+
+        model.addAttribute("events", eventRepository.getEventsByUserId(user_id));
+        model.addAttribute("eventsAsGuest", eventRepository.getEventsAsGuestByUserId(user_id));
+
+        return "/visitorsProfile";
+    }
+
 }

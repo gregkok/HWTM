@@ -83,5 +83,18 @@ public class UserRepository {
         }
     }
 
+    public User getUserDetails(long id){
+
+        List<User> allUsers = getAllUsers();
+
+        for(User u : allUsers){
+            if(u.getId() == id){
+                return u;
+            }
+        }
+        return null;
+    }
+
+
 }
 
