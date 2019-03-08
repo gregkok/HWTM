@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+        integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <link rel="shortcut icon" type="image/x-icon" href="images/logoPink.png">
+    <title>Register</title>
+    <style>
+        .bd-placeholder-img {
+            font-size: 1.125rem;
+            text-anchor: middle;
+        }
+
+        @media (min-width: 768px) {
+            .bd-placeholder-img-lg {
+                font-size: 3.5rem;
+            }
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+    <link rel="stylesheet" href="carousel.css">
+</head>
+
+<body>
+    <header>
+        <nav id="headerColor" class="navbar navbar-expand-md navbar-dark fixed-top">
+            <a class="navbar-brand" href="/loginPage"><img style="width:40px; height: 40px;" src="images/smallLogo.png"
+                    alt="logo">HOST WITH THE MOST</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
+                aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/profile">Home <span class="sr-only">(current)</span></a>
+                    </li>
+
+                </ul>
+                <ul class="form-inline mt-2 mt-md-0">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="LoginPage.html">Logout<span class="sr-only">(current)</span></a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <div class="container registerWrapper">
+        <div class="sideLeft"></div>
+        <div class="content">
+            <h1>Register profile</h1>
+            <div class="profileImage">
+                <img src="images/noname.jpg" width="200px" height="200px">
+                <br>
+                <a class="editPicture" href="#" rel="edit profile picture">Edit Profile picture</a>
+            </div>
+            <div>
+                <form class="forms" action="register" method="POST" th:object="${user}">
+                    <br>
+                    <h3>Who are you?</h3>
+                    <br>
+                    <label>First name</label>
+                    <input type="text" name="firstName" placeholder="Examplius" th:field="*{firstName}">
+                    <br>
+                    <br>
+                    <label>Last name</label>
+                    <input type="text" name="lastName" placeholder="Exampleson" th:field="*{lastName}">
+                    <br>
+                    <br>
+                    <label>Email</label>
+                    <br>
+                    <input type="text" name="email" placeholder="example@examples.ex" th:field="*{email}">
+                    <br>
+                    <br>
+                    <br>
+                    <h3>Where do you live?</h3>
+                    <br>
+
+                    <label>Street</label>
+                    <br>
+                    <input type="text" name="street" placeholder="Example View" th:field="*{address}" >
+                    <br>
+                    <br>
+
+                    <h3>Almost there baby!</h3>
+                    <br>
+                    <label>Username</label>
+                    <input type="text" name="username" placeholder="exampleman99" th:field="*{userName}">
+                    <br>
+                    <br>
+                    <label>Password</label>
+                    <input type="password" name="password" placeholder="supersecretpassword" th:field="*{user_password}">
+                    <br>
+                    <br>
+                    <input type="submit" value="Register profile">
+                </form>
+
+            </div>
+        </div>
+        <div class="sideRight"></div>
+
+    </div>
+
+    <footer class="footer">
+        <hr class="featurette-divider">
+        <a href="#">About</a>
+        <p>&copy; 2017-2018 Company, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
+    </footer>
+
+    <script>
+        var prevScrollpos = window.pageYOffset;
+        window.onscroll = function () {
+            var currentScrollPos = window.pageYOffset;
+            if (prevScrollpos > currentScrollPos) {
+                document.getElementById("headerColor").style.top = "0";
+            } else {
+                document.getElementById("headerColor").style.top = "-72px";
+            }
+            prevScrollpos = currentScrollPos;
+        }
+    </script>
+</body>
+
+</html>

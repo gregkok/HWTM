@@ -1,0 +1,214 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+
+<head>
+  <meta charset="utf-8">
+  </meta>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  </meta>
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+    integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+  </link>
+  <link rel="shortcut icon" type="image/x-icon" href="/images/logoPink.png">
+
+  <link rel="shortcut icon" type="image/x-icon" href="images\d20.png">
+  </link>
+  
+
+  <title>Home</title>
+  <style>
+    .left-grid {
+      grid-area: left-grid;
+    }
+
+    .middle-grid {
+      grid-area: middle-grid;
+      text-align: center;
+      margin-top: 10%;
+    }
+
+    .righ-grid {
+      grid-area: right-grid;
+    }
+
+    .grid-container {
+      display: grid;
+      grid-template-areas: 'left-grid middle-grid right-grid';
+    }
+  </style>
+  <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+  <link rel="stylesheet" href="carousel.css">
+</head>
+
+<body>
+    <header>
+        <nav id="headerColor" class="navbar navbar-expand-md navbar-dark fixed-top">
+            <a class="navbar-brand" href="/profile"><img style="width:40px; height: 40px;" src="/images/smallLogo.png"
+                    alt="logo">HOST WITH THE MOST</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
+                aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/profile">Home <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/editProfile">Edit profile</a>
+                    </li>
+                    <!--<li class="nav-item">
+                        <a class="nav-link disabled" href="#">Disabled</a>
+                      </li>-->
+                </ul>
+                <ul class="form-inline mt-2 mt-md-0">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/logout">Logout<span class="sr-only">(current)</span></a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+  <main class="grid-container">
+    <div class="left-grid"></div>
+
+    <div class="middle-grid">
+      <div>
+        <div>
+          <img th:src="'images/' + ${session.currentUser.url}" width="200px" height="200px">
+          <div class="profileImage">
+          <br>
+          <br>
+
+          <div>
+            <h1 th:text="' Welcome, ' + ${session.currentUser.firstName} + '!'">
+              Greeting goes here! </h1>
+          </div>
+        </div>
+
+        <div>
+          <h3>
+            <div>
+              <div>
+                <br>
+                <a href="findEvent"><button class="btn btn-outline-success my-2 my-sm-0" type="submit"
+                  style="width: 20em;  height: 3em; margin: 3%;">Find event</button></a><span>
+                 <a href="hostNewEvent"> <button class="btn btn-outline-success my-2 my-sm-0" type="submit"
+                    style="width : 20em;  height: 3em; margin: 3%;">Create event</button></a></span>
+              </div>
+            </div>
+          </h3>
+        </div>
+      </div>
+      <br><br><br>
+
+      <h2>Hosting: </h2>
+
+          <div>
+        <!--Card starts here------------------------------------>
+        <div th:each="event:${events}" >
+          <hr class="featurette-divider">
+
+          <div class="row featurette">
+            <div class="col-md-7">
+              <h4 class="featurette-heading">
+                <a  th:href="'/hostingDetails/' + ${event.event_id}" th:text="${event.type}">DINNER</a>
+                <br>
+                <span class="text-muted" th:text="${event.event_date}">Friday 2/10</span>
+                <p>
+                  Hosted by:
+                  <span th:text="${event.host_name}">Unknown host</span>
+                </p>
+              </h4>
+              <p class="lead" th:text="${event.event_address}">Kista, Stockholm</p>
+              <p th:text="${event.price} + ' SEK'">15</p>
+            </div>
+            <div class="col-md-5">
+              <a href="session_1.html" rel="first session">
+                <img th:src="'images/' + ${event.url}" width="200px" height="200px" alt="image" background="#eee"
+                     color="#aaa" class="bd-placeholder-img-lg featurette-image img-fluid mx-auto">
+              </a>
+            </div>
+
+            <hr class="featurette-divider">
+          </div>
+        </div>
+
+              <!--Card Ends here------------------------------------>
+
+              <!--Card starts here------------------------------------>
+
+              <br>
+              <br>
+              <h2>Attending: </h2>
+            <div th:each="event:${eventsAsGuest}">
+                  <hr class="featurette-divider">
+
+                  <div class="row featurette">
+                      <div class="col-md-7">
+                          <h4 class="featurette-heading">
+                              <a  th:href="'/eventDetailsForGuest/' + ${event.event_id}" th:text="${event.type}">DINNER</a>
+                              <br>
+                              <span class="text-muted" th:text="${event.event_date}">Friday 2/10</span>
+                              <p>
+                                  Hosted by:
+                                  <span th:text="${event.host_name}">Unknown host</span>
+                              </p>
+                          </h4>
+                          <p class="lead" th:text="${event.event_address}">Kista, Stockholm</p>
+                          <p th:text="${event.price} + ' SEK'">15</p>
+                      </div>
+                      <div class="col-md-5">
+                          <a href="session_1.html" rel="first session">
+                              <img th:src="'images/' + ${event.url}" width="200px" height="200px" alt="image" background="#eee"
+                                   color="#aaa" class="bd-placeholder-img-lg featurette-image img-fluid mx-auto">
+                          </a>
+                      </div>
+
+                      <hr class="featurette-divider">
+                  </div>
+              </div>
+              <!--Card Ends here------------------------------------>
+
+          </div>
+
+
+      <footer class="container">
+
+        <p class="float-right">
+          <a href="#">Back to top</a>
+        </p>
+
+        <p>
+          &copy; 2019-2020 Company, Inc. &middot;
+
+          <a href="#">Privacy</a>
+
+          &middot;
+
+          <a href="#">Terms</a>
+        </p>
+      </footer>
+    </div>
+    </div>
+
+    <div class="right-grid"></div>
+  </main>
+  <script>
+    var prevScrollpos = window.pageYOffset;
+    window.onscroll = function () {
+      var currentScrollPos = window.pageYOffset;
+      if (prevScrollpos > currentScrollPos) {
+        document.getElementById("headerColor").style.top = "0";
+      } else {
+        document.getElementById("headerColor").style.top = "-72px";
+      }
+      prevScrollpos = currentScrollPos;
+    }
+  </script>
+</body>
+
+</html>

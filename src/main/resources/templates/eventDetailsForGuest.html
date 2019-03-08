@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+        integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <link rel="shortcut icon" type="image/x-icon" href="/images/logoPink.png">
+    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+    <link rel="stylesheet" href="/carousel.css">
+
+    <title>Event Guest</title>
+    <style>
+        .left-grid {
+            grid-area: left-grid;
+        }
+
+        .middle-grid {
+            grid-area: middle-grid;
+            text-align: center;
+            
+        }
+
+        .righ-grid {
+            grid-area: right-grid;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-areas: 'left-grid middle-grid right-grid';
+            margin-top: 10%;
+
+        }
+
+        .bd-placeholder-img {
+            font-size: 1.125rem;
+            text-anchor: middle;
+        }
+
+        @media (min-width: 768px) {
+            .bd-placeholder-img-lg {
+                font-size: 3.5rem;
+            }
+        }
+    </style>
+
+</head>
+
+<body>
+    <header>
+        <nav id="headerColor" class="navbar navbar-expand-md navbar-dark fixed-top">
+            <a class="navbar-brand" href="/profile"><img style="width:40px; height: 40px;" src="/images/smallLogo.png"
+                    alt="logo">HOST WITH THE MOST</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
+                aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/profile">Home <span class="sr-only">(current)</span></a>
+                    </li>
+                    <!--<li class="nav-item">
+                        <a class="nav-link disabled" href="#">Disabled</a>
+                      </li>-->
+                </ul>
+                <ul class="form-inline mt-2 mt-md-0">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/logout">Logout<span class="sr-only">(current)</span></a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+        <br>
+        <br>
+        <br>
+
+        <div>
+            <h1 class="effect">Event Details</h1>
+        </div>
+
+
+    <main class="grid-container" style="margin: 5%">
+        <div class="left-grid"></div>
+        <div class="middle-grid">
+            <div class="inputs">
+               <!-- <form action="#" method="POST"> -->
+                    <h3 class="eventTitle">Event type</h3>
+                    <p th:text="${event.type}">Dinner</p>
+                    <br>
+                    <h3 class="eventTitle">Location</h3>
+                    <p th:text="${event.event_address}">Kista</p>
+                    <br>
+                    <h3 class="eventTitle">Time</h3>
+                    <p th:text="${event.event_time}">19:00</p>
+                    <br>
+                    <h3 class="eventTitle">Date</h3>
+                    <p th:text="${event.event_date}">2019/02/14</p>
+                    <br>
+                    <h4 class="eventTitle">Description</h4>
+                    <p th:text="${event.description}">Dried Stuff</p>
+                    <br>
+                    <h4 class="eventTitle">Number of Guests</h4>
+                    <p th:text="${event.numOfGuests}">4</p>
+                    <br>
+                    <h4 class="eventTitle">Price</h4>
+                    <p th:text="${event.price}">$10</p>
+                    <br>
+
+                    <a th:href="'/attend/' + ${event.event_id} + '/' + ${user.id}"><button class="btn btn-outline-success my-2 my-sm-0" type="submit"
+                        style="width: 20em;  height: 3em; margin: 3%;">Attend Event!</button></a>
+                        <br>
+               <!-- </form> -->
+            </div>
+            <hr class="featurette-divider" style="margin-top: 4%">
+
+            <footer class="container footercontainer">
+                <p class="float-right"><a href="#">Back to top</a></p>
+                <p>&copy; 2019-2020 Company, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
+            </footer>
+        </div>
+
+        <div class="right-grid"></div>
+    </main>
+
+    <script>
+        var prevScrollpos = window.pageYOffset;
+        window.onscroll = function () {
+            var currentScrollPos = window.pageYOffset;
+            if (prevScrollpos > currentScrollPos) {
+                document.getElementById("headerColor").style.top = "0";
+            } else {
+                document.getElementById("headerColor").style.top = "-72px";
+            }
+            prevScrollpos = currentScrollPos;
+        }
+    </script>
+    </body>
+
+</html>

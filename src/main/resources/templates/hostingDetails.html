@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+        integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <link rel="shortcut icon" type="image/x-icon" href="/images/logoPink.png">
+    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+    <link rel="stylesheet" href="/carousel.css">
+
+    <title>Event Host</title>
+    <style>
+        .left-grid {
+            grid-area: left-grid;
+        }
+
+        .middle-grid {
+            grid-area: middle-grid;
+        }
+
+        .righ-grid {
+            grid-area: right-grid;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-areas: 'left-grid middle-grid right-grid';
+            margin-top: 10%;
+
+        }
+
+        .middle-container {
+            text-align: center;
+            display: grid;
+            grid-template-areas: 'grid-row1''grid-row2';
+            grid-row-gap: 10%;
+        }
+
+        .grid-row1 {
+            grid-area: grid-row1;
+        }
+
+        .grid-row2 {
+            grid-area: grid-row2;
+        }
+
+        .bd-placeholder-img {
+            font-size: 1.125rem;
+            text-anchor: middle;
+        }
+
+        @media (min-width: 768px) {
+            .bd-placeholder-img-lg {
+                font-size: 3.5rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+        <header>
+                <nav id="headerColor" class="navbar navbar-expand-md navbar-dark fixed-top">
+                    <a class="navbar-brand" href="/profile"><img style="width:40px; height: 40px;" src="/images/smallLogo.png"
+                            alt="logo">HOST WITH THE MOST</a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
+                        aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarCollapse">
+                        <ul class="navbar-nav mr-auto">
+                            <li class="nav-item active">
+                                <a class="nav-link" href="/profile">Home <span class="sr-only">(current)</span></a>
+                            </li>
+                        </ul>
+                        <ul class="form-inline mt-2 mt-md-0">
+                            <li class="nav-item active">
+                                <a class="nav-link" href="/logout">Logout<span class="sr-only">(current)</span></a>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </header>
+
+
+    <main class="grid-container">
+        <div class="left-grid"></div>
+        <div class="middle-grid middle-container">
+        
+            
+            <div class="grid-row1">
+                    <h1 class="effect">Hosting Details</h1>
+                <table class="table table-bordered">
+                    <thead class="thead-light">
+                        <tr>
+                            <th colspan="2" th:text="${event.type}">Dinner</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td th:text="${event.event_date}">Date</td>
+                            <td th:text="${event.description}" rowspan="3">Description about the event. Perhaps a menu, who knows? The user can put
+                                whatever they like here.</td>
+                        </tr>
+                        <tr>
+                            <td th:text="${event.event_time}">Time</td>
+                        </tr>
+                        <tr>
+                            <td th:text="${event.event_address}">Location</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="grid-row2">
+                <h2>Attendees</h2>
+                <br>
+
+
+                <div th:each="attendee : ${attendees}">
+                    <hr class="featurette-divider">
+
+                    <div class="row featurette">
+                        <img th:src="'/images/' + ${attendee.url}" height="70px" width="70px">
+                        <div class="col-md-7">
+                            <h4 class="featurette-heading">
+                                <p th:text="${attendee.firstName}">Name</p>
+                                <br>
+                                <p class="text-muted" th:text="${attendee.email}">Friday 2/10</p>
+                            </h4>
+                        </div>
+                        <hr class="featurette-divider">
+                    </div>
+                </div>
+
+
+
+
+            </div>
+            <hr class="featurette-divider">
+
+            <footer class="container">
+                <p class="float-right"><a href="#">Back to top</a></p>
+                <p>&copy; 2019-2020 Company, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
+            </footer>
+        </div>
+
+        <div class="right-grid"></div>
+    </main>
+
+    <script>
+        var prevScrollpos = window.pageYOffset;
+        window.onscroll = function () {
+            var currentScrollPos = window.pageYOffset;
+            if (prevScrollpos > currentScrollPos) {
+                document.getElementById("headerColor").style.top = "0";
+            } else {
+                document.getElementById("headerColor").style.top = "-72px";
+            }
+            prevScrollpos = currentScrollPos;
+        }
+    </script>
+</body>
+
+</html>

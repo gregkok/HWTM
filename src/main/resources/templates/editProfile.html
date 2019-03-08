@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+    integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <link rel="shortcut icon" type="image/x-icon" href="/images/logoPink.png">
+  <title>Profile</title>
+
+  
+
+  <style>
+    .left-grid {
+      grid-area: left-grid;
+    }
+
+    .middle-grid {
+      grid-area: middle-grid;
+      text-align: center;
+
+    }
+
+    .righ-grid {
+      grid-area: right-grid;
+    }
+
+    .grid-container {
+      display: grid;
+      grid-template-areas: 'left-grid middle-grid right-grid';
+      margin-top: 10%;
+    }
+
+    .middle-container {
+      text-align: center;
+      display: grid;
+      grid-template-areas: 'grid-row1''grid-row2';
+    }
+
+    .grid-row1 {
+      grid-area: grid-row1;
+    }
+
+    .grid-row2 {
+      grid-area: grid-row2;
+    }
+
+    .bd-placeholder-img {
+      font-size: 1.125rem;
+      text-anchor: middle;
+    }
+
+    @media (min-width: 768px) {
+      .bd-placeholder-img-lg {
+        font-size: 3.5rem;
+      }
+    }
+  </style>
+  <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+  <link rel="stylesheet" href="carousel.css">
+</head>
+
+<body>
+    <header>
+        <nav id="headerColor" class="navbar navbar-expand-md navbar-dark fixed-top">
+            <a class="navbar-brand" href="/profile"><img style="width:40px; height: 40px;" src="images/smallLogo.png"
+                    alt="logo">HOST WITH THE MOST</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
+                aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/profile">Home <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/editProfile">Edit profile</a>
+                    </li>
+                    <!--<li class="nav-item">
+                        <a class="nav-link disabled" href="#">Disabled</a>
+                      </li>-->
+                </ul>
+                <ul class="form-inline mt-2 mt-md-0">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/logout">Logout<span class="sr-only">(current)</span></a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+
+  <main class="grid-container">
+    <div class="left-grid"></div>
+    <div class="middle-grid middle-container">
+      <div class="grid-row1">
+      <!--  <img class="bd-placeholder-img rounded-circle" src="images/profilePicture.jpg" alt="sandro"
+          width="240" height="240" class="rounded-circle" preserveAspectRatio="xMidYMid slice" focusable="false"
+          role="img" aria-label="Placeholder: 140x140"> -->
+      </div>
+      <div class="grid-row2">
+        <form onsubmit="alert('Changes saved!');return true" action="/editProfile" method="post" th:object="${user}">
+          <p>First name</p>
+          <input type="text" th:field="*{firstName}"><br>
+          <br>
+          <p>Last name</p>
+          <input type="text" th:field="*{lastName}"><br>
+          <br>
+          <p>Email</p>
+          <input type="text" th:field="*{email}"><br>
+          <br>
+          <p>Address</p>
+          <input type="text" th:field="*{address}"><br>
+          <br>
+          <p>Username</p>
+          <input type="text" th:field="*{userName}"><br>
+          <br>
+          <p>Password</p>
+          <input type="password" th:field="*{user_password}"><br>
+          <br>
+          <input type="submit" value="Save"><br>
+          <br>
+        </form>
+      </div>
+      <footer class="container">
+        <hr class="featurette-divider">
+        <p class="float-right"><a href="#">Back to top</a></p>
+        <p>&copy; 2019-2020 Company, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
+      </footer>
+    </div>
+
+    <div class="right-grid"></div>
+  </main>
+  <script>
+    var prevScrollpos = window.pageYOffset;
+    window.onscroll = function () {
+      var currentScrollPos = window.pageYOffset;
+      if (prevScrollpos > currentScrollPos) {
+        document.getElementById("headerColor").style.top = "0";
+      } else {
+        document.getElementById("headerColor").style.top = "-72px";
+      }
+      prevScrollpos = currentScrollPos;
+    }
+  </script>
+</body>
+
+</html>

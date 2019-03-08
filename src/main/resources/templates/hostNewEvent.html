@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+    integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+  <link rel="shortcut icon" type="image/x-icon" href="/images/logoPink.png">
+  <title>New Host</title>
+  <style>
+    .bd-placeholder-img {
+      font-size: 1.125rem;
+      text-anchor: middle;
+    }
+
+    @media (min-width: 768px) {
+      .bd-placeholder-img-lg {
+        font-size: 3.5rem;
+      }
+    }
+  </style>
+  <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+  <link rel="stylesheet" href="carousel.css">
+</head>
+
+<body>
+    <header>
+        <nav id="headerColor" class="navbar navbar-expand-md navbar-dark fixed-top">
+            <a class="navbar-brand" href="/profile"><img style="width:40px; height: 40px;" src="/images/smallLogo.png"
+                    alt="logo">HOST WITH THE MOST</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
+                aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/profile">Home <span class="sr-only">(current)</span></a>
+                    </li>
+                </ul>
+                
+                    
+                        <a class="nav-link" href="/logout"><button class="btn btn-outline-succes my-2 my-sm-0" type="submit">Logout</button><span class="sr-only">(current)</span></a>
+                    
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+  <div class="container newHost">
+    <div class="sideLeft"></div>
+    <div class="content">
+      <h1>Host new event</h1>
+      <div>
+        <form class="forms" action="/hostNewEvent" method="post" th:object="${event}">
+            <p>Event type</p>
+
+            <select value="Dinner" th:field="*{type}">
+                <option value="Dinner">Dinner</option>
+                <option value="Hike">Hike</option>
+                <option value="Book club">Book club</option>
+            </select>
+
+            <p>Description</p>
+            <textarea rows=8 cols="28" name="description" th:field="*{description}"></textarea><br>
+            <br>
+            <p>Location</p>
+            <input type="text" name="Location" th:field="*{event_address}"><br>
+            <br>
+            <p>Time</p>
+            <input type="time" name="Time" th:field="*{event_time}"><br>
+            <br>
+            <p>Date</p>
+            <input type="date" name="newHostDate" th:field="*{event_date}"><br>
+            <br>
+            <p>Number of Guests</p>
+            <input type="number" name="numOfGuests" th:field="*{numOfGuests}"><br>
+            <br>
+          <br>
+          <p>Price</p>
+          <input type="number" name="Price" th:field="*{price}"><br>
+          <br>
+
+
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Host event</button><br>
+          <br>
+        </form>
+      </div>
+    </div>
+    <div class="sideRight"></div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <hr class="featurette-divider">
+    <a href="#">About</a>
+    <p>&copy; 2017-2018 Company, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
+  </footer>
+  <script>
+    var prevScrollpos = window.pageYOffset;
+    window.onscroll = function () {
+      var currentScrollPos = window.pageYOffset;
+      if (prevScrollpos > currentScrollPos) {
+        document.getElementById("headerColor").style.top = "0";
+      } else {
+        document.getElementById("headerColor").style.top = "-72px";
+      }
+      prevScrollpos = currentScrollPos;
+    }
+  </script>
+</body>
+
+</html>
