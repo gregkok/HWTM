@@ -128,16 +128,10 @@
                         <img th:src="'/images/' + ${attendee.url}" height="70px" width="70px">
                         <div class="col-md-7">
                             <h4 class="featurette-heading">
-<<<<<<< HEAD
                               <p th:text="${attendee.firstName} + ' ' +${attendee.lastName} ">Name</p>
                                 <a th:href="'/visitorsProfile/' + ${attendee.id}"><p style="color : grey" th:text="'@ ' + ${attendee.userName}">username</p></a>
                                 <p style="font-size : 90%" class="text-muted" th:text="${attendee.email}">email</p>
-=======
-                                <p th:text="${attendee.firstName} + ' ' + ${attendee.lastName}">Name</p>
-                                <p style="color:grey" th:text="'@' + ${attendee.userName}">Username</p>
-                                <br>
-                                <p style="font-size:85%" class="text-muted" th:text="${attendee.email}">Email</p>
->>>>>>> d3b7dae3c55508c44cff5e498acd409898c7fa9e
+
                             </h4>
                         </div>
                         <hr class="featurette-divider">
