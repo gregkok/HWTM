@@ -128,9 +128,10 @@
                         <img th:src="'/images/' + ${attendee.url}" height="70px" width="70px">
                         <div class="col-md-7">
                             <h4 class="featurette-heading">
-                                <p th:text="${attendee.firstName}">Name</p>
+                                <p th:text="${attendee.firstName} + ' ' + ${attendee.lastName}">Name</p>
+                                <p style="color:grey" th:text="'@' + ${attendee.userName}">Username</p>
                                 <br>
-                                <p class="text-muted" th:text="${attendee.email}">Friday 2/10</p>
+                                <p style="font-size:85%" class="text-muted" th:text="${attendee.email}">Email</p>
                             </h4>
                         </div>
                         <hr class="featurette-divider">

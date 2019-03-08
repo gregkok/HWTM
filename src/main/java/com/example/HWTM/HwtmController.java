@@ -158,10 +158,12 @@ public class HwtmController {
     @GetMapping("/eventDetailsForGuest/{event_id}")
     public String eventDetailsGuest(@PathVariable long event_id, Model model, HttpSession session){
         User currentUser = (User)session.getAttribute("currentUser");
+        boolean isAttending = true;
 
         Event currentEvent = eventRepository.getEventDetails(event_id);
         model.addAttribute("event", currentEvent);
         model.addAttribute("user", currentUser);
+        //isAttending = true;
 
         return "/eventDetailsForGuest";
     }

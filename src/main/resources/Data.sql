@@ -8,10 +8,13 @@ INSERT INTO USERS (FIRST_NAME, LAST_NAME, USERNAME, USER_PASSWORD, ADDRESS, EMAI
 
 
 INSERT INTO EVENTS (USERS_ID, EVENT_HOST, EVENT_TYPE, EVENT_TIME, EVENT_DATE, EVENT_ADDRESS, DESCRIPTION, NR_OF_GUESTS, PRICE, URL) VALUES (1, 'Rob Daly', 'Dinner', '19:30', '14/03/2019', 'Norrmalm, Stockholm', 'A fun night..', 1, 15, 'rob.jpg');
-INSERT INTO EVENTS (USERS_ID, EVENT_HOST,  EVENT_TYPE, EVENT_TIME, EVENT_DATE, EVENT_ADDRESS, DESCRIPTION, NR_OF_GUESTS, PRICE, URL) VALUES (1, 'Rob Daly', 'Dinner', '21:30', '16/03/2019', 'Södermalm, Stockholm', 'Taco-Friday', 12, 100, 'rob.jpg');
-INSERT INTO EVENTS (USERS_ID, EVENT_HOST,  EVENT_TYPE, EVENT_TIME, EVENT_DATE, EVENT_ADDRESS, DESCRIPTION, NR_OF_GUESTS, PRICE, URL) VALUES (2, 'Miriam Haile', 'Dinner', '11:45', '7/03/2019', 'Kista, Stockholm', 'Lunch', 1, 15, 'miriam.jpg');
-INSERT INTO EVENTS (USERS_ID, EVENT_HOST,  EVENT_TYPE, EVENT_TIME, EVENT_DATE, EVENT_ADDRESS, DESCRIPTION, NR_OF_GUESTS, PRICE, URL) VALUES (3, 'Greg Kokkoris', 'Hike', '11:45', '7/03/2019', 'Norway', 'walk', 1, 15, 'greg.jpg');
+INSERT INTO EVENTS (USERS_ID, EVENT_HOST,  EVENT_TYPE, EVENT_TIME, EVENT_DATE, EVENT_ADDRESS, DESCRIPTION, NR_OF_GUESTS, PRICE, URL) VALUES (1, 'Rob Daly', 'Book Club', '19:30', '16/03/2019', 'Södermalm, Stockholm', 'Lets talk about oue favourite books.', 12, 0, 'rob.jpg');
+INSERT INTO EVENTS (USERS_ID, EVENT_HOST,  EVENT_TYPE, EVENT_TIME, EVENT_DATE, EVENT_ADDRESS, DESCRIPTION, NR_OF_GUESTS, PRICE, URL) VALUES (2, 'Miriam Haile', 'Dinner', '11:45', '7/03/2019', 'Kista, Stockholm', 'Spanish Tapas', 15, 50, 'miriam.jpg');
+INSERT INTO EVENTS (USERS_ID, EVENT_HOST,  EVENT_TYPE, EVENT_TIME, EVENT_DATE, EVENT_ADDRESS, DESCRIPTION, NR_OF_GUESTS, PRICE, URL) VALUES (3, 'Greg Kokkoris', 'Hike', '11:45', '9/03/2019', 'Kebnekaise', 'Racing up the mountain', 5, 15, 'greg.jpg');
 INSERT INTO EVENTS (USERS_ID, EVENT_HOST,  EVENT_TYPE, EVENT_TIME, EVENT_DATE, EVENT_ADDRESS, DESCRIPTION, NR_OF_GUESTS, PRICE, URL) VALUES (6, 'Alexander Eriksson', 'Dinner', '17:45', '9/03/2019', 'Bromma, Stockholm', 'Gluten-free is gluten-fun! Join my super tasty gluten free, not-so-tasty dinner. Menu is not set, but there will probably be pea-soup. Oh, and no lactose! :)', 10, 80, 'alexander.jpg');
+INSERT INTO EVENTS (USERS_ID, EVENT_HOST,  EVENT_TYPE, EVENT_TIME, EVENT_DATE, EVENT_ADDRESS, DESCRIPTION, NR_OF_GUESTS, PRICE, URL) VALUES (6, 'Sonam Choudhary', 'Book Club', '14:00', '10/03/2019', 'Göteborg', 'Lets discuss the central themes of all 8 Harry Potter books!', 15, 0, 'sonam.jpg');
+INSERT INTO EVENTS (USERS_ID, EVENT_HOST,  EVENT_TYPE, EVENT_TIME, EVENT_DATE, EVENT_ADDRESS, DESCRIPTION, NR_OF_GUESTS, PRICE, URL) VALUES (6, 'Alexander Eriksson', 'Dinner', '18:00', '10/03/2019', 'Kungsholmen, Stockholm', 'Hipster dinner. Lo-fi etsy YOLO whatever. Helvetica pinterest selvage sustainable irony actually adaptogen hot chicken. Tbh mustache leggings paleo. Flannel kinfolk PBR&B drinking vinegar. Knausgaard tofu hammock, cliche pok pok selvage VHS vexillologist health goth marfa 90s yr hell of. Put a bird on it unicorn yr, dreamcatcher roof party bespoke brooklyn iceland. Cold-pressed paleo jean shorts try-hard, chia butcher flexitarian.', 15, 100, 'alexander.jpg');
+
 
 
 
